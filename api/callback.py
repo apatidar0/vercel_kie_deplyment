@@ -13,6 +13,11 @@ app.add_middleware(
     allow_headers=["*"],  # Allows all headers
 )
 
+
+@app.get("/")
+async def root():
+    return {"message": "Deployment Successful", "status": "active"}
+
 @app.post("/callback")
 async def callback(request: Request):
     try:
