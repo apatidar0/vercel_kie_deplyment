@@ -10,5 +10,10 @@
       "src": "/api/callback",
       "dest": "/api/callback.py"
     }
-  ]
+  ],
+  "env": {
+      "VERCEL": "1",
+      "LOG_LEVEL": "INFO",
+      "JSON_LOGGING": "1"
+    }
 }
