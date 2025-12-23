@@ -1,17 +1,5 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "main.py",
-        "use": "@vercel/python"
-      }
-    ],
-    "routes": [
-      { "src": "/(.*)", "dest": "main.py" }
-    ],
-    "env": {
-      "VERCEL": "1",
-      "LOG_LEVEL": "INFO",
-      "JSON_LOGGING": "1"
-    }
-  }
+    "rewrites": [
+      { "source": "/(.*)", "destination": "/api/callback.py" }
+    ]
+}
