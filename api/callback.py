@@ -1,9 +1,19 @@
 from fastapi import FastAPI, Request, HTTPException
 import json
+from fastapi.middleware.cors import CORSMiddleware
+
 
 app = FastAPI()
 
-@app.post("/api/callback")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows all origins, use a specific domain in production
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all methods (GET, POST, OPTIONS, etc.)
+    allow_headers=["*"],  # Allows all headers
+)
+
+@app.post("/callback")
 async def callback(request: Request):
     try:
         payload = await request.json()
